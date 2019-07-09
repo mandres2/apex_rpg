@@ -1,23 +1,36 @@
 // Execute this code when the DOM has fully loaded.
 $(document).ready(function() {
-    // VARIABLE DECLARATION
-    // ===================================================================
+    // Gets Link for Theme Song
+    var audioElement = document.createElement("audio");
+    audioElement.setAttribute("src", "assets\audio\Apex Legends - Legendary Hunt - New Main Menu Theme.mp3");
+
+    // Theme Button
+    $(".theme-button").on("click", function() {
+      audioElement.play();
+    });
+    $(".pause-button").on("click", function() {
+      audioElement.pause();
+    });
+
   
-    // Creating an object to hold our characters.
+  
+    // VARIABLE DECLARATION
+
+    // Creating an object to hold the characters.
     var characters = {
       "Wraith": {
         name: "Wraith",
         health: 100,
-        attack: 11,
+        attack: 12,
         imageUrl: "https://www.novinspot.com/wp-content/uploads/2019/03/apex-legends-780x439.jpg",
         enemyAttackBack: 15
       },
       "Octane": {
         name: "Octane",
         health: 100,
-        attack: 11,
+        attack: 11.5,
         imageUrl: "https://i.ytimg.com/vi/-9IJiuQl2mo/maxresdefault.jpg",
-        enemyAttackBack: 5
+        enemyAttackBack: 25
       },
       "Bloodhound": {
         name: "Bloodhound",
@@ -32,7 +45,21 @@ $(document).ready(function() {
         attack: 10,
         imageUrl: "https://cdn.wccftech.com/wp-content/uploads/2019/02/apex_legends_robot.jpg",
         enemyAttackBack: 25
-      }
+      },
+      "Bangalore": {
+        name: "Bangalore",
+        health: 100,
+        attack: 15,
+        imageUrl: "https://d1fs8ljxwyzba6.cloudfront.net/assets/editorial/2019/02/apex-legends-bangalore-finisher.jpg",
+        enemyAttackBack: 30
+      },
+      "Wattson": {
+        name: "Wattson",
+        health: 100,
+        attack: 16,
+        imageUrl: "https://ksassets.timeincuk.net/wp/uploads/sites/54/2019/07/2kx8vvnsrw731-920x518.png",
+        enemyAttackBack: 21
+      },
     };
   
     // Will be populated when the player selects a character.
@@ -187,7 +214,7 @@ $(document).ready(function() {
           // Render the player's updated character card.
           updateCharacter(attacker, "#selected-character");
   
-          // If you have less than zero health the game ends.
+          // If the user's chosen character has less than zero health the game ends.
           // We call the restartGame function to allow the user to restart the game and play again.
           if (attacker.health <= 0) {
             clearMessage();

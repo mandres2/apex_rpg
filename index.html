@@ -14,15 +14,23 @@
 		<script type="text/javascript" src="assets\javascript\game.js"></script>
 		<!-- bulma + fontawesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+		<!-- Boostrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		
-
-
 	</head>
 
 	<body>
 
 		<div class="main-section-title">A p e x  L e g e n d s  R P G</div>
+		
+		<div id="musicControls" class="text-center">
+			<button class="btn btn-warning btn-xs theme-button">
+			  <span class="fa fa-music"></span> Play Theme!</button>
+			<button class="btn btn-dark btn-xs pause-button">
+			  <span class="fa fa-pause"></span> Pause Song</button>
+		</div>
+		
 		<div id="main-game-section">
 			<!-- Where the characters are initially available to be selected. -->
 			<div id="characters-section">
@@ -49,13 +57,13 @@
 			<div id="action">
 				<div class="character-section">
 					<div class="section-title">Defender</div>
-					<!-- Where our defender will appear. -->
+					<!-- Where the defender will appear. -->
 					<div id="defender"></div>
 				</div>
 			</div>
 
 		</div>
-		<!-- Area for game messages. -->
+		<!-- Area for game messages - Win/Loss/No Enemies -->
 		<div id="game-message"></div>
 	</body>
 
