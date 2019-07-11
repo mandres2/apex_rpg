@@ -1,4 +1,4 @@
-// Executes the code when the Date Object Model has fully loaded.
+// This Executes the code when the Date Object Model has fully loaded.
 $(document).ready(function() {
     
   // Under document.ready, this code ties the local link to the audioElement.
@@ -13,47 +13,47 @@ $(document).ready(function() {
       audioElement.pause();
     });
 
-    // VARIABLE DECLARATION
+    // ============= VARIABLE DECLARATION ================ //
 
-    // Create an object to hold the characters. 
+    // Creates an object to hold the characters. 
     var characters = {
-      "Wraith": {
-        name: "Wraith",
+      "WRAITH": {
+        name: "WRAITH",
         health: 100,
         attack: 16,
         imageUrl: "https://www.novinspot.com/wp-content/uploads/2019/03/apex-legends-780x439.jpg",
         enemyAttackBack: 15
       },
-      "Octane": {
-        name: "Octane",
+      "OCTANE": {
+        name: "OCTANE",
         health: 100,
         attack: 17,
         imageUrl: "https://i.ytimg.com/vi/-9IJiuQl2mo/maxresdefault.jpg",
         enemyAttackBack: 25
       },
-      "Bloodhound": {
-        name: "Bloodhound",
+      "BLOODHOUND": {
+        name: "BLOODHOUND",
         health: 100,
         attack: 18,
         imageUrl: "https://media.comicbook.com/2019/05/apex-legends-1170715-1280x0.jpeg",
         enemyAttackBack: 20
       },
-      "Pathfinder": {
-        name: "Pathfinder",
+      "PATHFINDER": {
+        name: "PATHFINDER",
         health: 100,
         attack: 16,
         imageUrl: "https://cdn.wccftech.com/wp-content/uploads/2019/02/apex_legends_robot.jpg",
         enemyAttackBack: 30
       },
-      "Bangalore": {
-        name: "Bangalore",
+      "BANGALORE": {
+        name: "BANGALORE",
         health: 100,
         attack: 20,
         imageUrl: "https://d1fs8ljxwyzba6.cloudfront.net/assets/editorial/2019/02/apex-legends-bangalore-finisher.jpg",
         enemyAttackBack: 15
       },
-      "Wattson": {
-        name: "Wattson",
+      "WATTSON": {
+        name: "WATTSON",
         health: 100,
         attack: 16,
         imageUrl: "https://ksassets.timeincuk.net/wp/uploads/sites/54/2019/07/2kx8vvnsrw731-920x518.png",
@@ -61,9 +61,9 @@ $(document).ready(function() {
       },
     };
   
-    // Will be populated when the player selects a character.
+    // Will appear when the player selects a character.
     var attacker;
-    // Populated with all the characters the player didn't select.
+    // Will appear with all the characters the player didn't select.
     var combatants = [];
     // Will be populated when the player chooses an opponent.
     var defender;
@@ -72,8 +72,7 @@ $(document).ready(function() {
     // Tracks number of defeated opponents.
     var killCount = 0;
   
-    // FUNCTIONS
-    // ===================================================================
+    // ================= FUNCTIONS ================= //
   
     // This function will render a character card to the page.
     // The character rendered, the area they are rendered to, and their status is determined by the arguments passed in.
@@ -95,7 +94,7 @@ $(document).ready(function() {
       }
     };
   
-    // remember to run the function here
+    // running the function here
     initializeGame();
   
     // This function handles updating the selected player or the current defender. If there is no selected player/defender this
@@ -210,7 +209,7 @@ $(document).ready(function() {
           // Reduce your health by the opponent's attack value.
           attacker.health -= defender.enemyAttackBack;
   
-          // Render the player's updated character card.
+          // Render the player's updated character card with the updated HP.
           updateCharacter(attacker, "#selected-character");
   
           // If the user's chosen character has less than zero health the game ends.
@@ -229,10 +228,10 @@ $(document).ready(function() {
           var gameStateMessage = "You have defeated " + defender.name + ", you can choose to fight another enemy.";
           renderMessage(gameStateMessage);
   
-          // Increment your kill count.
+          // Kill count increments.
           killCount++;
   
-          // If you have killed all of your opponents you win.
+          // If the player killed all opponents, the player wins
           // Call the restartGame function to allow the user to restart the game and play again.
           if (killCount >= combatants.length) {
             clearMessage();
@@ -246,7 +245,7 @@ $(document).ready(function() {
       else {
         // If there is no defender, render an error message.
         clearMessage();
-        renderMessage("No tangos in sight");
+        renderMessage("No Tangos In Sight");
       }
     });
   });

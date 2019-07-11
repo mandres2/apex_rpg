@@ -1,5 +1,6 @@
 body {
     font-family: 'Teko', sans-serif;
+    /* Kings Canyon Map Background */
     background-image: url("https://cdn.mos.cms.futurecdn.net/vPMEZQvGAA9L5tsnzarbRS.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -121,6 +122,7 @@ body {
     margin-left: 325px;
   }
   
+  /* Where the user interacts. The spacing for margin-left centers the entire section */
   #main-game-section {
     margin-left: 325px;
   }
