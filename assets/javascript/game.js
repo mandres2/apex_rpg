@@ -1,10 +1,11 @@
-// Execute this code when the DOM has fully loaded.
+// Executes the code when the Date Object Model has fully loaded.
 $(document).ready(function() {
-    // Gets Link for Theme Song
+    
+  // Under document.ready, this code ties the local link to the audioElement.
     var audioElement = document.createElement("audio");
-    audioElement.setAttribute("src", "assets\audio\Apex Legends - Legendary Hunt - New Main Menu Theme.mp3");
+    audioElement.setAttribute("src", "assets/audio/Apex.mp3");
 
-    // Theme Button
+    // APEX THEME BUTTON
     $(".theme-button").on("click", function() {
       audioElement.play();
     });
@@ -12,53 +13,51 @@ $(document).ready(function() {
       audioElement.pause();
     });
 
-  
-  
     // VARIABLE DECLARATION
 
-    // Creating an object to hold the characters.
+    // Create an object to hold the characters. 
     var characters = {
       "Wraith": {
         name: "Wraith",
         health: 100,
-        attack: 12,
+        attack: 16,
         imageUrl: "https://www.novinspot.com/wp-content/uploads/2019/03/apex-legends-780x439.jpg",
         enemyAttackBack: 15
       },
       "Octane": {
         name: "Octane",
         health: 100,
-        attack: 11.5,
+        attack: 17,
         imageUrl: "https://i.ytimg.com/vi/-9IJiuQl2mo/maxresdefault.jpg",
         enemyAttackBack: 25
       },
       "Bloodhound": {
         name: "Bloodhound",
         health: 100,
-        attack: 14,
+        attack: 18,
         imageUrl: "https://media.comicbook.com/2019/05/apex-legends-1170715-1280x0.jpeg",
         enemyAttackBack: 20
       },
       "Pathfinder": {
         name: "Pathfinder",
         health: 100,
-        attack: 10,
+        attack: 16,
         imageUrl: "https://cdn.wccftech.com/wp-content/uploads/2019/02/apex_legends_robot.jpg",
-        enemyAttackBack: 25
+        enemyAttackBack: 30
       },
       "Bangalore": {
         name: "Bangalore",
         health: 100,
-        attack: 15,
+        attack: 20,
         imageUrl: "https://d1fs8ljxwyzba6.cloudfront.net/assets/editorial/2019/02/apex-legends-bangalore-finisher.jpg",
-        enemyAttackBack: 30
+        enemyAttackBack: 15
       },
       "Wattson": {
         name: "Wattson",
         health: 100,
         attack: 16,
         imageUrl: "https://ksassets.timeincuk.net/wp/uploads/sites/54/2019/07/2kx8vvnsrw731-920x518.png",
-        enemyAttackBack: 21
+        enemyAttackBack: 17
       },
     };
   
@@ -114,8 +113,8 @@ $(document).ready(function() {
       }
     };
   
-    // Function to handle rendering game messages.
-    var renderMessage = function(message) {
+      // Function to handle rendering game messages.
+      var renderMessage = function(message) {
       // Builds the message and appends it to the page.
       var gameMessageSet = $("#game-message");
       var newMessage = $("<div>").text(message);
@@ -124,8 +123,8 @@ $(document).ready(function() {
   
     // Function which handles restarting the game after victory or defeat.
     var restartGame = function(resultMessage) {
-      // When the 'Restart' button is clicked, reload the page.
-      var restart = $("<button>Restart</button>").click(function() {
+      // When the 'Restart' button is clicked, reloads the page.
+      var restart = $("<button style='margin-left: 325px'>Restart</button>").click(function() {
         location.reload();
       });
   
@@ -187,7 +186,7 @@ $(document).ready(function() {
       }
     });
   
-    // When you click the attack button, run the following game logic...
+    // When you click the attack button: F(x)...
     $("#attack-button").on("click", function() {
       // If there is a defender, combat will occur.
       if ($("#defender").children().length !== 0) {
@@ -218,7 +217,7 @@ $(document).ready(function() {
           // We call the restartGame function to allow the user to restart the game and play again.
           if (attacker.health <= 0) {
             clearMessage();
-            restartGame("You have been defeated... G a m e  O v e r");
+            restartGame("You Have Been Eliminated");
             $("#attack-button").off("click");
           }
         }
