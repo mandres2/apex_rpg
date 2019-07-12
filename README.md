@@ -1,3 +1,9 @@
 # unit-4-game
 
-IDE Used: VS Code
+Software Used:
+IDE Used: Microsoft Visual Studios Code
+Adobe XD
+Google Chrome
+
+
+

@@ -74,7 +74,7 @@ $(document).ready(function() {
   
     // ================= FUNCTIONS ================= //
   
-    // This function will render a character card to the page.
+    // This function will "render" a character card to the page.
     // The character rendered, the area they are rendered to, and their status is determined by the arguments passed in.
     var renderCharacter = function(character, renderArea) {
       // This block of code builds the character card, and renders it to the page.
@@ -94,10 +94,10 @@ $(document).ready(function() {
       }
     };
   
-    // running the function here
+    // **running the function here**
     initializeGame();
   
-    // This function handles updating the selected player or the current defender. If there is no selected player/defender this
+    // This function handles updating the selected player or the current defender. If there is no selected player/defender, this
     // function will also place the character based on the areaRender chosen (e.g. #selected-character or #defender)
     var updateCharacter = function(charObj, areaRender) {
       // First we empty the area so that we can re-render the new object
@@ -142,7 +142,7 @@ $(document).ready(function() {
       gameMessage.text("");
     };
   
-    // ===================================================================
+    // ====================== ON CLICK EVENT =============================== //
   
     // On click event for selecting our character.
     $("#characters-section").on("click", ".character", function() {
