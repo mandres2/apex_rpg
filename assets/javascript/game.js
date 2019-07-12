@@ -72,6 +72,7 @@ $(document).ready(function() {
     // Tracks number of defeated opponents.
     var killCount = 0;
   
+
     // ================= FUNCTIONS ================= //
   
     // This function will "render" a character card to the page.
@@ -116,7 +117,7 @@ $(document).ready(function() {
       var renderMessage = function(message) {
       // Builds the message and appends it to the page.
       var gameMessageSet = $("#game-message");
-      var newMessage = $("<div>").text(message);
+      var newMessage = $("#game-message").text(message);
       gameMessageSet.append(newMessage);
     };
   
@@ -128,7 +129,7 @@ $(document).ready(function() {
       });
   
       // Build div that will display the victory/defeat message.
-      var gameState = $("<div>").text(resultMessage);
+      var gameState = $("#game-message").text(resultMessage);
   
       // Render the restart button and victory/defeat message to the page.
       $("body").append(gameState);
@@ -222,7 +223,7 @@ $(document).ready(function() {
         }
         else {
           // If the enemy has less than zero health they are defeated.
-          // Remove your opponent's character card.
+          // This will remove the opponent's character card.
           $("#defender").empty();
   
           var gameStateMessage = "You have defeated " + defender.name + ", you can choose to fight another enemy.";
@@ -232,7 +233,7 @@ $(document).ready(function() {
           killCount++;
   
           // If the player killed all opponents, the player wins
-          // Call the restartGame function to allow the user to restart the game and play again.
+          // CALL the restartGame function to allow the user to restart the game and play again.
           if (killCount >= combatants.length) {
             clearMessage();
             $("#attack-button").off("click");
