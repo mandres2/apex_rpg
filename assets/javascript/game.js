@@ -1,3 +1,14 @@
+// ======================== Algorithm ======================== //
+// 1) What is the objective?
+    // a) To create a role-playing game where the user can choose one out of six available characters and fight the remainder five to become the next Apex Champion
+      // b) The character list will listed at the top. Once the user clicks one, the remaining five characters move to the combate arena (AKA the Apex Arena).
+      // c) The next part is the user will click on any of the five combatants, and the combatant the user has chosen will become a defender, which will be moved into another section.
+      // d) The user will keep on attacking the "defender," until there is no more HP left. Once the "defender" is eliminated, the player will engage with the remaining 5 and repeat steps: 1.c to 1.d until the user's chosen character remains standing.
+        // 1) If the user's character remains standing, the user wins and be crowned the Apex Champion.
+        // 2) If the user' character has 0 HP and is unable to sucessfully beat the remaining combatants, the user is eliminated and the game will have to be restarted. Repeat stesp 1.a -> 1.d
+       
+
+
 // This Executes the code when the Date Object Model has fully loaded.
 $(document).ready(function() {
     
@@ -13,67 +24,67 @@ $(document).ready(function() {
       audioElement.pause();
     });
 
-    // ============= VARIABLE DECLARATION ================ //
+    // ============= STEP 01: VARIABLE DECLARATION ================ //
 
     // Creates an object to hold the characters. 
     var characters = {
       "WRAITH": {
         name: "WRAITH",
         health: 100,
-        attack: 16,
+        attack: 10,
         imageUrl: "https://www.novinspot.com/wp-content/uploads/2019/03/apex-legends-780x439.jpg",
-        enemyAttackBack: 15
+        enemyAttackBack: 11
       },
       "OCTANE": {
         name: "OCTANE",
         health: 100,
-        attack: 17,
+        attack: 11,
         imageUrl: "https://i.ytimg.com/vi/-9IJiuQl2mo/maxresdefault.jpg",
-        enemyAttackBack: 25
+        enemyAttackBack: 12
       },
       "BLOODHOUND": {
         name: "BLOODHOUND",
         health: 100,
-        attack: 18,
+        attack: 12,
         imageUrl: "https://media.comicbook.com/2019/05/apex-legends-1170715-1280x0.jpeg",
-        enemyAttackBack: 20
+        enemyAttackBack: 13
       },
       "PATHFINDER": {
         name: "PATHFINDER",
         health: 100,
-        attack: 16,
+        attack: 13,
         imageUrl: "https://cdn.wccftech.com/wp-content/uploads/2019/02/apex_legends_robot.jpg",
-        enemyAttackBack: 30
+        enemyAttackBack: 14
       },
       "BANGALORE": {
         name: "BANGALORE",
         health: 100,
-        attack: 20,
+        attack: 14,
         imageUrl: "https://d1fs8ljxwyzba6.cloudfront.net/assets/editorial/2019/02/apex-legends-bangalore-finisher.jpg",
         enemyAttackBack: 15
       },
       "WATTSON": {
         name: "WATTSON",
         health: 100,
-        attack: 16,
+        attack: 15,
         imageUrl: "https://ksassets.timeincuk.net/wp/uploads/sites/54/2019/07/2kx8vvnsrw731-920x518.png",
-        enemyAttackBack: 17
+        enemyAttackBack: 16
       },
     };
   
-    // Will appear when the player selects a character.
+    // Will appear when the user selects a character.
     var attacker;
-    // Will appear with all the characters the player didn't select.
+    // Will appear with all the characters the user didn't select.
     var combatants = [];
-    // Will be populated when the player chooses an opponent.
+    // Will be populated when the user chooses an opponent.
     var defender;
-    // Will keep track of turns during combat. Used for calculating player damage.
+    // Will keep track of turns during combat. Used for calculating user damage.
     var turnCounter = 1;
     // Tracks number of defeated opponents.
     var killCount = 0;
   
 
-    // ================= FUNCTIONS ================= //
+    // ================= STEP 02: CREATE THE FUNCTIONS & THE GAME LOGIC ================= //
   
     // This function will "render" a character card to the page.
     // The character rendered, the area they are rendered to, and their status is determined by the arguments passed in.
@@ -101,7 +112,7 @@ $(document).ready(function() {
     // This function handles updating the selected player or the current defender. If there is no selected player/defender, this
     // function will also place the character based on the areaRender chosen (e.g. #selected-character or #defender)
     var updateCharacter = function(charObj, areaRender) {
-      // First we empty the area so that we can re-render the new object
+      // First we .empty the area so that we can re-render the new object
       $(areaRender).empty();
       renderCharacter(charObj, areaRender);
     };
@@ -143,7 +154,7 @@ $(document).ready(function() {
       gameMessage.text("");
     };
   
-    // ====================== ON CLICK EVENT =============================== //
+    // ====================== STEP 03: CREATE THE ON-CLICK EVENTS =============================== //
   
     // On click event for selecting our character.
     $("#characters-section").on("click", ".character", function() {
@@ -170,8 +181,8 @@ $(document).ready(function() {
       }
     });
   
-    // Creates an on click event for each enemy.
-    $("#available-to-attack-section").on("click", ".character", function() {
+      // Creates an on click event for each enemy.
+      $("#available-to-attack-section").on("click", ".character", function() {
       // Saving the opponent's name.
       var name = $(this).attr("data-name");
   
@@ -240,7 +251,7 @@ $(document).ready(function() {
             restartGame("You Are the Apex Champion");
           }
         }
-        // Increment turn counter. This is used for determining how much damage the player does.
+        // Increment the turn counter. This will be used for determining how much damage the player does.
         turnCounter++;
       }
       else {
