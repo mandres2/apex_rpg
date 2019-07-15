@@ -25,6 +25,8 @@ The player wins the game by defeating all enemy characters. The player loses the
 
 
 ===========================================================
+
+
 Game design Notes:
 
 Each character in the game has 3 attributes: Health Points, Attack Power and Counter Attack Power.
@@ -48,6 +50,9 @@ A winning player must pick their characters wisely by first fighting an enemy wi
 Your players should be able to win and lose the game no matter what character they choose. The challenge should come from picking the right enemies, not choosing the strongest player.
 
 ===========================================================
+
+
+
 Software Used:
 IDE Used: Microsoft Visual Studios Code
 Adobe XD
