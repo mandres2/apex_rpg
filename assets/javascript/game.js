@@ -32,7 +32,7 @@ $(document).ready(function() {
         name: "WRAITH",
         health: 100,
         attack: 10,
-        imageUrl: "https://www.novinspot.com/wp-content/uploads/2019/03/apex-legends-780x439.jpg",
+        imageUrl: "assets/images/wraith.jpg",
         enemyAttackBack: 17
       },
       "OCTANE": {
